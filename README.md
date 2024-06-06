@@ -5,7 +5,7 @@
 
 This repo contains the official implementation of our [VideoTetris]().
 
-> [**VideoTetris: Towards Compositional Text-To-Video Generation**]() 
+> [**VideoTetris: Towards Compositional Text-To-Video Generation**]()   
 > [Ye Tian*](https://scholar.google.com/citations?user=vUY_PIUAAAAJ&hl=en),
 > [Ling Yang*$\dag$](https://yangling0818.github.io), 
 > [Haotian Yang](https://scholar.google.com/citations?user=LH71RGkAAAAJ&hl=en),
@@ -17,9 +17,8 @@ This repo contains the official implementation of our [VideoTetris]().
 > [Xin Tao](https://scholar.google.com/citations?user=sQ30WyUAAAAJ&hl=en),
 > [Pengfei Wan](https://scholar.google.com/citations?user=P6MraaYAAAAJ&hl=en),
 > [Di Zhang](https://openreview.net/profile?id=~Di_ZHANG3),
-> [Bin Cui](https://cuibinpku.github.io/cuibin_cn.html)
-<br>
-(* Equal Contribution, $\dag$ Corresponding Author)
+> [Bin Cui](https://cuibinpku.github.io/cuibin_cn.html)   
+> (* Equal Contribution, $\dag$ Corresponding Author)
 > <br>Peking University, Kuaishou Technology<br>
 
 
