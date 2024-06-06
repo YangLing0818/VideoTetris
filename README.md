@@ -7,7 +7,7 @@ This repo contains the official implementation of our [VideoTetris]().
 
 > [**VideoTetris: Towards Compositional Text-To-Video Generation**]()   
 > [Ye Tian*](https://scholar.google.com/citations?user=vUY_PIUAAAAJ&hl=en),
-> [Ling Yang* $\dagger$](https://yangling0818.github.io), 
+> [Ling Yang*$\dagger$](https://yangling0818.github.io), 
 > [Haotian Yang](https://scholar.google.com/citations?user=LH71RGkAAAAJ&hl=en),
 > [Yuan Gao](https://videotetris.github.io/),
 > [Yufan Deng](https://videotetris.github.io/),
