@@ -5,19 +5,18 @@
 
 This repo contains the official implementation of our [VideoTetris]().
 
-> [**VideoTetris: Towards Compositional Text-To-Video Generation**]()
-<br>
-> [Ye Tian*](https://scholar.google.com/citations?user=vUY_PIUAAAAJ&hl=en), 
+> [**VideoTetris: Towards Compositional Text-To-Video Generation**]() 
+> [Ye Tian*](https://scholar.google.com/citations?user=vUY_PIUAAAAJ&hl=en),
 > [Ling Yang*$\dag$](https://yangling0818.github.io), 
-> [Haotian Yang](https://scholar.google.com/citations?user=LH71RGkAAAAJ&hl=en), 
-> [Yuan Gao](https://videotetris.github.io/), 
-> [Yufan Deng](https://videotetris.github.io/), 
+> [Haotian Yang](https://scholar.google.com/citations?user=LH71RGkAAAAJ&hl=en),
+> [Yuan Gao](https://videotetris.github.io/),
+> [Yufan Deng](https://videotetris.github.io/),
 > [Jingmin Chen](https://videotetris.github.io/),
-> [Xintao Wang](https://xinntao.github.io), 
-> [Zhaochen Yu](https://videotetris.github.io/), 
-> [Xin Tao](https://scholar.google.com/citations?user=sQ30WyUAAAAJ&hl=en), 
-> [Pengfei Wan](https://scholar.google.com/citations?user=P6MraaYAAAAJ&hl=en), 
-> [Di Zhang](https://openreview.net/profile?id=~Di_ZHANG3) 
+> [Xintao Wang](https://xinntao.github.io),
+> [Zhaochen Yu](https://videotetris.github.io/),
+> [Xin Tao](https://scholar.google.com/citations?user=sQ30WyUAAAAJ&hl=en),
+> [Pengfei Wan](https://scholar.google.com/citations?user=P6MraaYAAAAJ&hl=en),
+> [Di Zhang](https://openreview.net/profile?id=~Di_ZHANG3),
 > [Bin Cui](https://cuibinpku.github.io/cuibin_cn.html)
 <br>
 (* Equal Contribution, $\dag$ Corresponding Author)
