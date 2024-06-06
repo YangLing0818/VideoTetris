@@ -26,7 +26,7 @@ This repo contains the official implementation of our [VideoTetris]().
 VideoTetris is a novel framework that enables **compositional T2V generation**. Specifically, we propose **spatio-temporal compositional diffusion** to precisely follow complex textual semantics by manipulating and composing the attention maps of denoising networks spatially and temporally. Moreover, we propose an enhanced video data preprocessing to enhance the training data regarding motion dynamics and prompt understanding, equipped with a new reference frame attention mechanism to improve the consistency of auto-regressive video generation.  Our demonstrations include successful examples of **videos spanning from 10s, 30s to 2 minutes**, and can be extended for even longer durations.
 <table class="center">
     <tr>
-    <td width=80% style="border: none"><img src="assets/image.png" style="width:80%"></td>
+    <td width=100% style="border: none"><img src="assets/image.png" style="width:100%"></td>
     </tr>
     <tr>
     <td width="100%" style="border: none; text-align: center; word-wrap: break-word">
