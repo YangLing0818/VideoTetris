@@ -21,6 +21,11 @@ This repo contains the official implementation of our [VideoTetris](https://arxi
 > (* Equal Contribution and Corresponding Author)
 > <br>Peking University, Kuaishou Technology<br>
 
+## News Update
+- [x] Paper [VideoTetris](https://arxiv.org/abs/2406.04277) released 
+- [ ] Release the inference code of VideoTetris
+- [ ] Release the checkpoint of our long compositonal video generation
+- [ ] Release VideoTetris with KLing/FIFO-Diffusion
 
 ## Introduction
 VideoTetris is a novel framework that enables **compositional T2V generation**. Specifically, we propose **spatio-temporal compositional diffusion** to precisely follow complex textual semantics by manipulating and composing the attention maps of denoising networks spatially and temporally. Moreover, we propose an enhanced video data preprocessing to enhance the training data regarding motion dynamics and prompt understanding, equipped with a new reference frame attention mechanism to improve the consistency of auto-regressive video generation.  Our demonstrations include successful examples of **videos spanning from 10s, 30s to 2 minutes**, and can be extended for even longer durations.
@@ -42,11 +47,7 @@ VideoTetris is a novel framework that enables **compositional T2V generation**. 
 </table>
 
 
-## News and Todo List
-- [2024.6.7] Paper [VideoTetris](https://arxiv.org/abs/2406.04277) released 
-- [ ] Release the inference code of VideoTetris with VideoCrafter2
-- [ ] Release the checkpoint of our long compositonal video generation
-- [ ] Release VideoTetris with KLing/FIFO-Diffusion
+
 
 ## Training and Inference
 (TODO)
