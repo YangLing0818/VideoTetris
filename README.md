@@ -23,8 +23,8 @@ This repo contains the official implementation of our [VideoTetris](https://arxi
 
 ## News Update
 - [x] Paper [VideoTetris](https://arxiv.org/abs/2406.04277) released 
-- [ ] Release the inference code of VideoTetris
-- [ ] Release the checkpoint of our long compositonal video generation
+- [ ] Release the inference code of VideoTetris within one month
+- [ ] Release the checkpoint of our long compositonal video generation within one month
 - [ ] Release VideoTetris with KLing/FIFO-Diffusion
 
 ## Introduction
