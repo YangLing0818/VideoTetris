@@ -55,8 +55,8 @@ VideoTetris is a novel framework that enables **compositional T2V generation**. 
 We only provide some example results here, more detailed results can be found in the [project page](https://videotetris.github.io/).
 <table class="center">
     <tr>
-    <td width=25% style="border: none"><img src="assets/cat_and_dog.gif" style="width:100%"></td>
-    <td width=25% style="border: none"><img src="assets/farmer_and_blacksmith.gif" style="width:100%"></td>
+    <td width=25% style="border: none"><img src="assets/cat_and_dog.gif" style="width:70%"></td>
+    <td width=25% style="border: none"><img src="assets/farmer_and_blacksmith.gif" style="width:70%"></td>
   <tr>
     <td width="25%" style="border: none; text-align: center; word-wrap: break-word">A cute brown dog on the left and a sleepy cat on the right are napping in the sun. <br> @16 Frames</td>
     <td width="25%" style="border: none; text-align: center; word-wrap: break-word">A cheerful farmer and a hardworking blacksmith are building a barn. <br> @16 Frames</td>
