@@ -1,11 +1,11 @@
 ## ___***VideoTetris: Towards Compositional Text-To-Video Generation***___
 <div align="left">
- <a href=''><img src='https://img.shields.io/badge/arXiv-2310.15169-b31b1b.svg'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <a href='https://arxiv.org/abs/2406.04277'><img src='https://img.shields.io/badge/arXiv-2406.04277-b31b1b.svg'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  <a href='https://videotetris.github.io'><img src='https://img.shields.io/badge/Project-Page-Green'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-This repo contains the official implementation of our [VideoTetris]().
+This repo contains the official implementation of our [VideoTetris](https://arxiv.org/abs/2406.04277).
 
-> [**VideoTetris: Towards Compositional Text-To-Video Generation**]()   
+> [**VideoTetris: Towards Compositional Text-To-Video Generation**](https://arxiv.org/abs/2406.04277)   
 > [Ye Tian](https://scholar.google.com/citations?user=vUY_PIUAAAAJ&hl=en),
 > [Ling Yang*](https://yangling0818.github.io), 
 > [Haotian Yang](https://scholar.google.com/citations?user=LH71RGkAAAAJ&hl=en),
@@ -43,7 +43,7 @@ VideoTetris is a novel framework that enables **compositional T2V generation**. 
 
 
 ## News and Todo List
-- [2024.6.7] Paper [VideoTetris]() released 
+- [2024.6.7] Paper [VideoTetris](https://arxiv.org/abs/2406.04277) released 
 - [ ] Release the inference code of VideoTetris with VideoCrafter2
 - [ ] Release the checkpoint of our long compositonal video generation
 - [ ] Release VideoTetris with KLing/FIFO-Diffusion
@@ -89,7 +89,7 @@ A cute brown squirrel and a cute white squirrel, on a pile of hazelnuts, cinemat
 @article{tian2024videotetris,
   title={VideoTetris: Towards Compositional Text-to-Video Generation},
   author={Tian, Ye and Yang, Ling and Yang, Haotian and Gao, Yuan and Deng, Yufan and Chen, Jingmin and Wang, Xintao and Yu, Zhaochen and Tao, Xin and Wan, Pengfei and Zhang, Di and Cui, Bin},
-  journal={arXiv preprint arXiv:2401.},
+  journal={arXiv preprint arXiv:2406.04277},
   year={2024}
 }
 ```
