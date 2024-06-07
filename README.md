@@ -65,15 +65,15 @@ We only provide some example results here, more detailed results can be found in
 
 <table class="center">
     <tr>
-    <td width=25% style="border: none"><img src="assets/1234.gif" style="width:100%"></td>
-    <td width=25% style="border: none"><img src="assets/brown2white.gif" style="width:100%"></td>
+    <td width=35% style="border: none"><img src="assets/1234.gif" style="width:100%"></td>
+    <td width=35% style="border: none"><img src="assets/brown2white.gif" style="width:100%"></td>
   <tr>
-    <td width="25%" style="border: none; text-align: center; word-wrap: break-word">One cute brown squirrel, on a pile of hazelnuts, cinematic. <br> ------>  transitions to <br>
+    <td width="35%" style="border: none; text-align: center; word-wrap: break-word">One cute brown squirrel, on a pile of hazelnuts, cinematic. <br> ------>  transitions to <br>
 Two cute brown squirrels, on a pile of hazelnuts, cinematic. <br> ------>  transitions to <br>
 Three cute brown squirrels, on a pile of hazelnuts, cinematic. <br> ------>  transitions to <br>
 Four cute brown squirrels, on a pile of hazelnuts, cinematic. <br> 
  @80 Frames</td>
-    <td width="25%" style="border: none; text-align: center; word-wrap: break-word">A cute brown squirrel, on a pile of hazelnuts, cinematic. <br> ------>  transitions to <br>
+    <td width="35%" style="border: none; text-align: center; word-wrap: break-word">A cute brown squirrel, on a pile of hazelnuts, cinematic. <br> ------>  transitions to <br>
 A cute brown squirrel and a cute white squirrel, on a pile of hazelnuts, cinematic.  <br>
  @240 Frames</td>
   </tr>
