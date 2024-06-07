@@ -6,7 +6,7 @@
 This repo contains the official implementation of our [VideoTetris](https://arxiv.org/abs/2406.04277).
 
 > [**VideoTetris: Towards Compositional Text-To-Video Generation**](https://arxiv.org/abs/2406.04277)   
-> [Ye Tian](https://scholar.google.com/citations?user=vUY_PIUAAAAJ&hl=en),
+> [Ye Tian](https://tyfeld.github.io/),
 > [Ling Yang*](https://yangling0818.github.io), 
 > [Haotian Yang](https://scholar.google.com/citations?user=LH71RGkAAAAJ&hl=en),
 > [Yuan Gao](https://videotetris.github.io/),
