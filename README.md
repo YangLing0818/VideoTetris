@@ -38,7 +38,7 @@ VideoTetris is a novel framework that enables **compositional T2V generation**. 
 </td>
   </tr>
     <tr>
-    <td width=100% style="border: none"><img src="assets/second.png" style="width:100%"></td>
+    <td width=100% style="border: none"><img src="assets/secondd.png" style="width:100%"></td>
     </tr>
     <tr>
     <td width="100%" style="border: none; text-align: center; word-wrap: break-word">
