@@ -1,3 +1,4 @@
+
 ## ___***VideoTetris: Towards Compositional Text-To-Video Generation***___
 <div align="left">
  <a href='https://arxiv.org/abs/2406.04277'><img src='https://img.shields.io/badge/arXiv-2406.04277-b31b1b.svg'></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -23,8 +24,11 @@ This repo contains the official implementation of our [VideoTetris](https://arxi
 
 ## News Update
 - [x] Paper [VideoTetris](https://arxiv.org/abs/2406.04277) released 
-- [ ] Release the inference code of VideoTetris within one month
-- [ ] Release the checkpoint of our long compositonal video generation within one month
+- [x] Release the inference code for compositioanl video generation based on VideoCrafter2
+- [x] Release our finetuned StreamingT2V for long video generation based on our filtered dataset
+- [ ] Release the code for our LLM spatio-temporal planning
+- [ ] Release the training/inference code of our long compositional video generation 
+- [ ] Release the checkpoint of our long compositional video generation 
 
 ## Introduction
 VideoTetris is a novel framework that enables **compositional T2V generation**. Specifically, we propose **spatio-temporal compositional diffusion** to precisely follow complex textual semantics by manipulating and composing the attention maps of denoising networks spatially and temporally. Moreover, we propose an enhanced video data preprocessing to enhance the training data regarding motion dynamics and prompt understanding, equipped with a new reference frame attention mechanism to improve the consistency of auto-regressive video generation.  Our demonstrations include successful examples of **videos spanning from 10s, 30s to 2 minutes**, and can be extended for even longer durations.
@@ -49,7 +53,51 @@ VideoTetris is a novel framework that enables **compositional T2V generation**. 
 
 
 ## Training and Inference
-(TODO)
+
+### Composition Video Generation
+We provide the inference code for compositional video generation based on VideoCrafter2. You can download the pretrained model from [Hugging Face](https://huggingface.co/VideoCrafter/VideoCrafter2/blob/main/model.ckpt) and put it in `checkpoints/base_512_v2/model.ckpt`. Then run the following command:
+#### 1. Install Environment via Anaconda (Recommended)
+```bash
+conda create -n videocrafter python=3.8.5
+conda activate videocrafter
+pip install -r requirements.txt
+```
+
+#### 2. Region Planning
+You can then plan the regions for different sub-objects in a json file like `prompts/demo_videotetris.json`. The regions are defined by the top-left and bottom-right coordinates of the bounding box. You can refer to the `prompts/demo_videotetris.json` for an example. And the final planning json should be like:
+```json
+{
+  {
+    "basic_prompt": "A cat on the left and a dog on the right are napping in the sun.",
+    "sub_objects":[
+        "A cute orange cat.",
+        "A cute dog."
+    ],
+    "layout_boxes":[
+        [0, 0, 0.5, 1],
+        [0.5, 0, 1, 1]
+    ]
+  },
+}
+```
+In this case, we first define the basic prompt, and then specify the sub-objects and their corresponding regions, resulting in a video with a left cat and a right dog.
+
+#### 3. Inference
+```bash
+sh scripts/run_text2video_from_layout.sh
+```
+You can specify the input json file `run_text2video_from_layout.sh` script.
+
+
+### Long Video Generation with High Dynamics and Consistency
+
+**We release a high-quality finetuned version of StreamingT2V for long video generation with our filtered dataset. You can download the weights from [Hugging Face-VideoTetris-long](https://huggingface.co/tyfeld/VideoTetris-long). Color degration no long exists and motion dynamics highly improved!**
+
+To generate better long video, you can first setup the original [StreamingT2V](https://github.com/Picsart-AI-Research/StreamingT2V) environment follow the steps in its github repo. Then directly replace the 'streamingt2v.ckpt' in the [StreamingT2V](https://github.com/Picsart-AI-Research/StreamingT2V) codebase with the downloaded checkpoint. And inference any long video generation task with the original StreamingT2V codebase.
+
+We are **still working on training a better long compositional video generation model in the VideoTetris framework**, and will release the training/inference code once it is ready. Stay tuned!
+
+
 
 ## Example Results
 We only provide some example results here, more detailed results can be found in the [project page](https://videotetris.github.io/).
@@ -82,8 +130,6 @@ A cute brown squirrel and a cute white squirrel, on a pile of hazelnuts, cinemat
 
 
 
-
-
 ## Citation
 ```
 @article{tian2024videotetris,
@@ -93,3 +139,5 @@ A cute brown squirrel and a cute white squirrel, on a pile of hazelnuts, cinemat
   year={2024}
 }
 ```
+
+## Acknowledgements
