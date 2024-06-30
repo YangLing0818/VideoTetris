@@ -55,7 +55,7 @@ VideoTetris is a novel framework that enables **compositional T2V generation**. 
 ## Training and Inference
 
 ### Composition Video Generation
-We provide the inference code for compositional video generation based on VideoCrafter2. You can download the pretrained model from [Hugging Face](https://huggingface.co/VideoCrafter/VideoCrafter2/blob/main/model.ckpt) and put it in `checkpoints/base_512_v2/model.ckpt`. Then run the following command:
+We provide the inference code of our VideoTetris for compositional video generation based on VideoCrafter2. You can download the pretrained model from [Hugging Face](https://huggingface.co/VideoCrafter/VideoCrafter2/blob/main/model.ckpt) and put it in `checkpoints/base_512_v2/model.ckpt`. Then run the following command:
 #### 1. Install Environment via Anaconda (Recommended)
 ```bash
 conda create -n videocrafter python=3.8.5
@@ -82,7 +82,7 @@ You can then plan the regions for different sub-objects in a json file like `pro
 ```
 In this case, we first define the basic prompt, and then specify the sub-objects and their corresponding regions, resulting in a video with a left cat and a right dog.
 
-#### 3. Inference
+#### 3. Inference of VideoTetris
 ```bash
 sh scripts/run_text2video_from_layout.sh
 ```
@@ -140,4 +140,3 @@ A cute brown squirrel and a cute white squirrel, on a pile of hazelnuts, cinemat
 }
 ```
 
-## Acknowledgements
