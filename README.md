@@ -24,10 +24,10 @@ This repo contains the official implementation of our [VideoTetris](https://arxi
 
 ## News Update
 - [x] Paper [VideoTetris](https://arxiv.org/abs/2406.04277) released 
-- [x] Release the inference code for compositioanl video generation based on VideoCrafter2
+- [x] Release our inference code of VideoTetris for compositioanl text-to-video generation
 - [x] Release our finetuned StreamingT2V for long video generation based on our filtered dataset
 - [ ] Release the code for our LLM spatio-temporal planning
-- [ ] Release the training/inference code of our long compositional video generation 
+- [ ] Release the training/inference code of long compositional video generation 
 - [ ] Release the checkpoint of our long compositional video generation 
 
 ## Introduction
@@ -54,7 +54,7 @@ VideoTetris is a novel framework that enables **compositional T2V generation**. 
 
 ## Training and Inference
 
-### Composition Video Generation
+### Composition Text-to-Video Generation
 We provide the inference code of our VideoTetris for compositional video generation based on VideoCrafter2. You can download the pretrained model from [Hugging Face](https://huggingface.co/VideoCrafter/VideoCrafter2/blob/main/model.ckpt) and put it in `checkpoints/base_512_v2/model.ckpt`. Then run the following command:
 #### 1. Install Environment via Anaconda (Recommended)
 ```bash
