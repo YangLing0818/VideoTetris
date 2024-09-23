@@ -333,12 +333,13 @@ class TextToVideoSDPipeline(DiffusionPipeline, TextualInversionLoaderMixin):
                 weighting. If not provided, negative_prompt_embeds will be generated from `negative_prompt` input
                 argument.
         """
-        if prompt is not None and isinstance(prompt, str):
-            batch_size = 1
-        elif prompt is not None and isinstance(prompt, list):
-            batch_size = len(prompt)
-        else:
-            batch_size = prompt_embeds.shape[0]
+        # print(prompt)
+        # if prompt is not None and isinstance(prompt, str):
+        #     batch_size = 1
+        # elif prompt is not None and isinstance(prompt, list):
+        #     batch_size = len(prompt)
+        # else:
+        #     batch_size = prompt_embeds.shape[0]
 
         batch_size = 1
         base_prompt = prompt["prompt"]
@@ -479,8 +480,8 @@ class TextToVideoSDPipeline(DiffusionPipeline, TextualInversionLoaderMixin):
             # to avoid doing two forward passes
             prompt_embeds = torch.cat([negative_prompt_embeds, prompt_embeds])
             
-            negative_layout_mask = torch.zeros_like(layout_mask)
-            layout_mask = torch.cat([negative_layout_mask, layout_mask])
+            negative_layout_mask = [0, 0, 1, 1]
+            layout_mask = [negative_layout_mask] + layout_mask
             # zip layout_mask and prompt_embeds
             prompt_embeds = list(zip(layout_mask, prompt_embeds))
         return prompt_embeds
@@ -840,7 +841,7 @@ class TextToVideoSDPipeline(DiffusionPipeline, TextualInversionLoaderMixin):
             num_frames,
             height,
             width,
-            prompt_embeds.dtype,
+            prompt_embeds[0][1].dtype,
             device,
             generator,
             latents,

@@ -746,29 +746,35 @@ class ControlNetModel(ModelMixin, ConfigMixin):
         emb = self.time_embedding(t_emb, timestep_cond)
         emb = emb.repeat_interleave(repeats=num_frames, dim=0)
 
+        # encoder_hidden_states may be a list of tuple of layout mask and encoder hidden states 
+        if encoder_hidden_states is not None and not torch.is_tensor(encoder_hidden_states):
+            tuple_encoder_hidden_states = encoder_hidden_states
+            layout_masks = [tuple_encoder_hidden_states[i][0] for i in range(len(tuple_encoder_hidden_states))]
+            encoder_hidden_states = torch.stack([tuple_encoder_hidden_states[i][1] for i in range(len(tuple_encoder_hidden_states))], dim=0)
+            print(encoder_hidden_states.shape)
         if not self.use_image_tokens and encoder_hidden_states.shape[1] > 77:
             encoder_hidden_states = encoder_hidden_states[:, :77]
 
-        if encoder_hidden_states.shape[1] > 77:
-            # assert (
-            #     encoder_hidden_states.shape[1]-77) % num_frames == 0, f"Encoder shape {encoder_hidden_states.shape}. Num frames = {num_frames}"
-            context_text, context_img = encoder_hidden_states[:,
-                                                              :77, :], encoder_hidden_states[:, 77:, :]
-            context_text = context_text.repeat_interleave(
-                repeats=num_frames, dim=0)
+        # if encoder_hidden_states.shape[1] > 77:
+        #     # assert (
+        #     #     encoder_hidden_states.shape[1]-77) % num_frames == 0, f"Encoder shape {encoder_hidden_states.shape}. Num frames = {num_frames}"
+        #     # context_text, context_img = encoder_hidden_states[:,
+        #     #                                                   :77, :], encoder_hidden_states[:, 77:, :]
+        #     # context_text = context_text.repeat_interleave(
+        #     #     repeats=num_frames, dim=0)
 
-            if self.image_encoder_name == "FrozenOpenCLIPImageEmbedder":
-                context_img = context_img.repeat_interleave(
-                    repeats=num_frames, dim=0)
-            else:
-                context_img = rearrange(
-                    context_img, 'b (t l) c -> (b t) l c', t=num_frames)
+            # if self.image_encoder_name == "FrozenOpenCLIPImageEmbedder":
+            #     context_img = context_img.repeat_interleave(
+            #         repeats=num_frames, dim=0)
+            # else:
+            #     context_img = rearrange(
+            #         context_img, 'b (t l) c -> (b t) l c', t=num_frames)
 
-            encoder_hidden_states = torch.cat(
-                [context_text, context_img], dim=1)
-        else:
-            encoder_hidden_states = encoder_hidden_states.repeat_interleave(
-                repeats=num_frames, dim=0)
+            # encoder_hidden_states = torch.cat(
+            #     [context_text, context_img], dim=1)
+        # else:
+            # encoder_hidden_states = encoder_hidden_states.repeat_interleave(
+            #     repeats=num_frames, dim=0)
 
         if reference_frames_features is not None :
             reference_frames_features = reference_frames_features.repeat_interleave(
@@ -802,7 +808,9 @@ class ControlNetModel(ModelMixin, ConfigMixin):
 
         sample = self.merger(sample * weight_control_sample,
                              weight_control * controlnet_cond)
-
+        
+        encoder_hidden_states = list(zip(layout_masks, encoder_hidden_states))
+        # print(encoder_hidden_states)
         # 3. down
         down_block_res_samples = (sample,)
         for downsample_block in self.down_blocks:

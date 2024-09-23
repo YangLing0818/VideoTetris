@@ -53,6 +53,20 @@ class XFormersAttnProcessor:
         self.use_image_embedding = use_image_embedding
 
     def __call__(self, attn: Attention, hidden_states, hidden_state_height=None, hidden_state_width=None, encoder_hidden_states=None, attention_mask=None):
+        layout_masks = []
+        conditions = []
+        region_diffusion = False
+        if encoder_hidden_states is not None and not torch.is_tensor(encoder_hidden_states):
+            # print(encoder_hidden_states)
+            region_diffusion = True
+            for m, c in encoder_hidden_states:
+                layout_masks.append(m)
+                conditions.append(c)
+            encoder_hidden_states = torch.stack(conditions, dim=0)
+            print(encoder_hidden_states.shape)
+            encoder_hidden_states = encoder_hidden_states.repeat_interleave(
+                repeats=hidden_states.shape[0]//2, dim=0)
+            print(encoder_hidden_states.shape, layout_masks)
         batch_size, sequence_length, _ = (
             hidden_states.shape if encoder_hidden_states is None else encoder_hidden_states.shape
         )
@@ -60,7 +74,7 @@ class XFormersAttnProcessor:
         key_img = None
         value_img = None
         hidden_states_img = None
-        region_diffusion = False
+        
         if attention_mask is not None:
             attention_mask = repeat(
                 attention_mask, "1 F D -> B F D", B=batch_size)
@@ -71,16 +85,9 @@ class XFormersAttnProcessor:
         query = attn.to_q(hidden_states)
 
         is_cross_attention = encoder_hidden_states is not None
-        layout_masks = []
-        conditions = []
-        if not torch.is_tensor(encoder_hidden_states):
-            region_diffusion = True
-            for m, c in encoder_hidden_states[0]:
-                layout_masks.append(m)
-                conditions.append(c)
-            encoder_hidden_states = torch.stack(conditions, dim=0)
-            # encoder_hidden_states = encoder_hidden_states.repeat_interleave(query.shape[0], dim=0)
-            # query = query.repeat(len(layout_masks), 1, 1)
+
+        
+       
         if encoder_hidden_states is None:
             encoder_hidden_states = hidden_states
         elif attn.norm_cross:
@@ -114,7 +121,7 @@ class XFormersAttnProcessor:
             if region_diffusion:
                 query_uncond, query_cond = query.chunk(2)
                 query_cond = query_cond.repeat(len(layout_masks)-1, 1, 1)
-                query = torch.cat([query_uncond, query_cond], dim=1)
+                query = torch.cat([query_uncond, query_cond], dim=0)
             # key = attn.to_k(encoder_hidden_states)
             # value = attn.to_v(encoder_hidden_states)
 
@@ -122,7 +129,7 @@ class XFormersAttnProcessor:
             region_diffusion = True
             query_uncond, query_cond = query.chunk(2)
             query_cond = query_cond.repeat(len(layout_masks)-1, 1, 1)
-            query = torch.cat([query_uncond, query_cond], dim=1)
+            query = torch.cat([query_uncond, query_cond], dim=0)
             key = attn.to_k(encoder_hidden_states)
             value = attn.to_v(encoder_hidden_states)
             # print(key.shape, value.shape). # 32*77*640, 32*77*640
