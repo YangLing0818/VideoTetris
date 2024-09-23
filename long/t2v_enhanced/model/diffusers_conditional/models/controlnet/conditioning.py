@@ -1,5 +1,5 @@
 import diffusers
-from diffusers.models.transformer_temporal import TransformerTemporalModel, TransformerTemporalModelOutput
+from diffusers.models.transformers.transformer_temporal import TransformerTemporalModel, TransformerTemporalModelOutput
 import torch.nn as nn
 from einops import rearrange
 from diffusers.models.attention_processor import Attention
