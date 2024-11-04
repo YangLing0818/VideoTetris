@@ -44,8 +44,8 @@ VideoTetris is a novel framework that enables **compositional T2V generation**. 
 
 
 
-## Training and Inference
-
+## Inference
+**Notice: Please note that the current framework only supports scenarios where all sub-objects' bounding boxes fill the entire layout([0,0,1,1]). This means the union of all bounding boxes should cover the entire layout without any missing areas.**
 ### Composition Text-to-Video Generation
 We provide the inference code of our VideoTetris for compositional video generation based on VideoCrafter2. You can download the pretrained model from [Hugging Face](https://huggingface.co/VideoCrafter/VideoCrafter2/blob/main/model.ckpt) and put it in `checkpoints/base_512_v2/model.ckpt`. Then run the following command:
 #### 1. Install Environment via Anaconda (Recommended)
@@ -57,6 +57,8 @@ pip install -r requirements.txt
 ```
 
 #### 2. Region Planning
+
+
 You can then plan the regions for different sub-objects in a json file like `prompts/demo_videotetris.json`. The regions are defined by the top-left and bottom-right coordinates of the bounding box. You can refer to the `prompts/demo_videotetris.json` for an example. And the final planning json should be like:
 ```json
 {
